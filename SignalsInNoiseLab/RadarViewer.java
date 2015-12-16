@@ -27,6 +27,14 @@ public class RadarViewer
         frame.setTitle("Signals in Noise Lab");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        //user can self import the location of the monster
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Set the coordinate of ROW: ");
+        int urow = scan.nextInt();
+        System.out.println("Set the coordinate of COLUMN: ");
+        int ucol = scan.nextInt();        
+        radar.setMonsterLocation(urow, ucol);
+        
         // a frame contains a single component; create the radar component and add it to the frame
         RadarComponent component = new RadarComponent(radar);
         frame.add(component);

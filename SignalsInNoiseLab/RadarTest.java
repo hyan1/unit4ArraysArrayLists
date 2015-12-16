@@ -18,21 +18,25 @@ public class RadarTest
 
     /**
      * Default constructor for objects of class RadarTest
+     * 1. create radar object
+     * 2. set monster location
+     * 3. invoice scan a bunch
+     * 4. analyze accumulator(via accumulateddetection to dind row+col of detected monster)
+     * 5. assertEquals(expectedrow, detectedrow)
+     *    assertEquals(expectedcol, detectedcol)
      */
     public RadarTest()
     {
         // initialise instance variables
-        x = 0;
     }
     
     /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
+     * first testa
      */
     @Before
     public void setUp()
     {
+        
     }
 
     /**
@@ -43,6 +47,7 @@ public class RadarTest
     @After
     public void tearDown()
     {
+        
     }
-
+
 }
