@@ -31,8 +31,18 @@ public class RadarViewer
         Scanner scan = new Scanner(System.in);
         System.out.println("Set the coordinate of ROW: ");
         int urow = scan.nextInt();
+        if( urow > 99)
+        {
+            System.out.println("Out of bonds, set to default maximum");
+            urow = 99;
+        }
         System.out.println("Set the coordinate of COLUMN: ");
-        int ucol = scan.nextInt();        
+        int ucol = scan.nextInt();
+        if( ucol > 99)
+        {
+            System.out.println("Out of bonds, set to default maximum");
+            ucol = 99;
+        }
         radar.setMonsterLocation(urow, ucol);
         
         // a frame contains a single component; create the radar component and add it to the frame

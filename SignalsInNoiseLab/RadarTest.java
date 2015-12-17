@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -31,23 +29,90 @@ public class RadarTest
     }
     
     /**
-     * first testa
+     * first test 
+     * test the monster if it's at specific location
      */
-    @Before
-    public void setUp()
+    @Test
+    public void test1()
     {
+        //1
+        Radar radar = new Radar(100, 100);
+       
         
+        //2
+        radar.setMonsterLocation(23, 6);
+        radar.setNoiseFraction(0.10);
+         
+        //3
+        for(int i = 0; i < 100; i++)
+        {
+            radar.scan();
+        }
+        
+        //4
+        int row = 0;
+        int col = 0;
+        int m = 0;
+        
+        for(int k = 0; k < 100; k++)
+        {
+            for(int j = 0; j < 100; j++)
+            {
+                if(radar.getAccumulatedDetection(k, j) > m)
+                {
+                    m = radar.getAccumulatedDetection(k, j);
+                    row = k;
+                    col = j;
+                }
+            }
+        }
+        
+        //5
+        assertEquals(23, row);
+        assertEquals(6, col);
     }
 
     /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
+     * second test
+     * test the monster if it's at specific location
      */
-    @After
-    public void tearDown()
+    @Test
+    public void test2()
     {
+        //1
+        Radar radar = new Radar(100, 100);
         
+        //2
+        radar.setMonsterLocation(6, 23);
+        radar.setNoiseFraction(0.10);
+        
+        //3
+        for(int i = 0; i < 100; i++)
+        {
+            radar.scan();
+        }
+        
+        //4
+        int row = 0;
+        int col = 0;
+        int m = 0;
+        for(int k = 0; k < 100; k++)
+        {
+            for(int j = 0; j < 100; j++)
+            {
+                if(radar.getAccumulatedDetection(k, j) > m)
+                {
+                    m = radar.getAccumulatedDetection(k, j);
+                    row = k;
+                    col = j;
+                }
+            }
+        }
+        
+        //5
+        assertEquals(6, row);
+        assertEquals(23, col);
     }
-
+
+
 }
